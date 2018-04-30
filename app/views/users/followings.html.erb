@@ -27,17 +27,8 @@ Microposts <span class="badge">
 </span>
 <% end %>
 </li>
-        <li class="
-<%= 'active' if current_page?(followings_user_path(@user)) %>
-">
-<%=link_to user_path(@user) do %>
-Microposts <span class="badge">
-<%= @count_microposts %>
-</span>
-<% end %>
-</li>
        <li class="
-<%= 'active' if current_page?(following_user_path(@user)) %>
+<%= 'active' if current_page?(followings_user_path(@user)) %>
 ">
 <%= link_to followers_user_path(@user) do %>
 Followers <span class="badge">
@@ -48,12 +39,20 @@ Followers <span class="badge">
         <li class="
 <%= 'active' if current_page?(followers_user_path(@user)) %>
 ">
-<%= link_to followers_uer_path(@user) do %>
+<%= link_to followers_user_path(@user) do %>
 Followers <span class="badge">
 <%= @count_followers %>
 </span>
 <% end %>
 </li>
+
+     <li class="
+       <%= 'active' if current_page?(likes_user_path(@user)) %>">
+       <%= link_to likes_user_path(@user) do %>Likes 
+       <span class="badge"><%= @count_likes %>
+       </span>
+       <% end %>
+     </li>
         </ul>
         
 <%= render 'users', users: @followings %>
